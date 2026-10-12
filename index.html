@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel Rural Latorrién de Ane | Navarra</title>
+<meta name="description" content="Hotel rural en una casona del siglo XVII restaurada en Mués, Navarra. Ocho habitaciones dobles, una suite y restaurante en la antigua bodega, cerca de Los Arcos y el Camino de Santiago.">
+<meta property="og:title" content="Hotel Rural Latorrién de Ane | Navarra">
+<meta property="og:description" content="Una escapada con historia en Mués, Navarra.">
+<meta property="og:image" content="assets/hero-exterior-church.jpg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap">
+<script src="./content.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#F6F2EB;color:#2B2521;font-family:'Instrument Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#A82A33}
+a:hover{color:#2B2521}
+button,input,textarea{font:inherit}
+:focus-visible{outline:2px solid #A82A33;outline-offset:3px}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;background:#F6F2EB">
+
+<a href="#main" style="position:absolute;left:-9999px;top:8px;z-index:100;background:#2B2521;color:#F6F2EB;padding:12px 18px;text-decoration:none" style-focus="left:12px">{{ t.nav.skip }}</a>
+
+<header style="position:sticky;top:0;z-index:60;background:rgba(246,242,235,0.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #DDD3C4">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(18px,4vw,48px);height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+    <a href="{{ hrefs.home }}" onClick="{{ go.home }}" aria-label="{{ t.nav.homeAria }}" style="display:flex;align-items:center;flex-shrink:0">
+      <img src="assets/logo.png" alt="Latorrién de Ane · Hotel Rural" width="589" height="362" style="display:block;height:62px;width:auto">
+    </a>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="{{ t.nav.main }}">
+        <ul style="display:flex;gap:30px;list-style:none;margin:0;padding:0">
+          <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
+            <li><a href="{{ item.href }}" onClick="{{ item.onClick }}" aria-current="{{ item.current }}" style="display:block;padding:8px 0;color:#2B2521;text-decoration:none;font-size:15px;font-weight:500;border-bottom:1px solid {{ item.underline }}" style-hover="color:#A82A33">{{ item.label }}</a></li>
+          </sc-for>
+        </ul>
+      </nav>
+    </sc-if>
+    <div style="display:flex;align-items:center;gap:16px">
+      <div role="group" aria-label="{{ t.nav.lang }}" style="display:flex;align-items:center;gap:2px;font-size:13px;font-weight:600;letter-spacing:0.06em">
+        <button type="button" lang="es" onClick="{{ setEs }}" aria-pressed="{{ esOn }}" style="min-width:40px;min-height:44px;background:none;border:0;cursor:pointer;color:{{ esColor }};text-decoration:{{ esDeco }};text-underline-offset:5px">ES</button>
+        <span aria-hidden="true" style="color:#BFB2A1">/</span>
+        <button type="button" lang="en" onClick="{{ setEn }}" aria-pressed="{{ enOn }}" style="min-width:40px;min-height:44px;background:none;border:0;cursor:pointer;color:{{ enColor }};text-decoration:{{ enDeco }};text-underline-offset:5px">EN</button>
+      </div>
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+        <a href="{{ bookingUrl }}" target="_blank" rel="noopener" aria-label="{{ t.cta.bookAria }}" style="display:inline-flex;align-items:center;min-height:44px;padding:0 20px;background:#A82A33;color:#FBF8F3;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:0.02em;border-radius:2px" style-hover="background:#86202A;color:#FBF8F3">{{ t.nav.book }}</a>
+      </sc-if>
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" aria-controls="mobile-menu" aria-label="{{ menuAria }}" style="min-height:44px;padding:0 16px;background:none;border:1px solid #2B2521;border-radius:2px;color:#2B2521;font-size:14px;font-weight:600;cursor:pointer">{{ menuLabel }}</button>
+      </sc-if>
+    </div>
+  </div>
+  <sc-if value="{{ showMenu }}" hint-placeholder-val="{{ false }}">
+    <nav id="mobile-menu" aria-label="{{ t.nav.main }}" style="border-top:1px solid #DDD3C4;background:#F6F2EB;padding:12px clamp(18px,4vw,48px) 28px;max-height:calc(100vh - 76px);overflow:auto">
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
+          <li style="border-bottom:1px solid #E3D9CA"><a href="{{ item.href }}" onClick="{{ item.onClick }}" aria-current="{{ item.current }}" style="display:flex;align-items:center;min-height:60px;color:#2B2521;text-decoration:none;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;font-weight:500">{{ item.label }}</a></li>
+        </sc-for>
+      </ul>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px">
+        <a href="{{ bookingUrl }}" target="_blank" rel="noopener" aria-label="{{ t.cta.bookAria }}" style="display:flex;align-items:center;justify-content:center;min-height:52px;background:#A82A33;color:#FBF8F3;text-decoration:none;font-weight:600;border-radius:2px">{{ t.cta.book }}</a>
+        <a href="tel:+34660600183" style="display:flex;align-items:center;justify-content:center;min-height:52px;border:1px solid #2B2521;color:#2B2521;text-decoration:none;font-weight:600;border-radius:2px">{{ t.cta.call }} · +34 660 600 183</a>
+      </div>
+    </nav>
+  </sc-if>
+</header>
+
+<main id="main" tabindex="-1" style="flex:1;outline:none">
+
+<!-- ======================= HOME ======================= -->
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+
+  <sc-if value="{{ heroImmersive }}" hint-placeholder-val="{{ false }}">
+  <section aria-labelledby="home-title" data-screen-label="Inicio · Hero" style="position:relative;min-height:max(580px,calc(100svh - 76px));display:flex;align-items:flex-end;background:#2A221D;color:#F6F2EB;overflow:hidden">
+    <div style="position:absolute;inset:0"><image-slot id="home-hero" src="{{ img.heroExterior }}" shape="rect" placeholder="hero-exterior" role="img" aria-label="{{ t.alt.hero }}" style="position:absolute;inset:0"></image-slot></div>
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top, rgba(28,22,18,0.82) 0%, rgba(28,22,18,0.45) 38%, rgba(28,22,18,0) 70%)"></div>
+    <div style="position:relative;width:100%;max-width:1320px;margin:0 auto;padding:clamp(28px,5vw,72px) clamp(18px,4vw,48px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px 64px;pointer-events:none">
+      <div style="flex:1 1 560px;display:flex;flex-direction:column;gap:22px;pointer-events:auto">
+        <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#EDA19D">{{ t.home.kicker }}</p>
+        <h1 id="home-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(54px,8.4vw,128px);line-height:0.94;letter-spacing:-0.02em;text-wrap:balance;max-width:9.5em">{{ t.home.title }}</h1>
+        <p style="margin:0;font-size:clamp(17px,1.4vw,19px);line-height:1.6;color:#EFE8DD;max-width:32em;text-wrap:pretty">{{ t.home.lead }}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="{{ hrefs.rooms }}" onClick="{{ go.rooms }}" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;background:#F6F2EB;color:#2B2521;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#A82A33;color:#F6F2EB">{{ t.cta.rooms }}</a>
+          <a href="{{ bookingUrl }}" target="_blank" rel="noopener" aria-label="{{ t.cta.bookAria }}" style="display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 24px;border:1px solid #F6F2EB;color:#F6F2EB;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#F6F2EB;color:#2B2521">{{ t.cta.book }} <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div style="flex:0 0 auto;pointer-events:auto"><a href="#opiniones" onClick="{{ go.homeReviews }}" style="display:flex;flex-wrap:wrap;gap:8px 22px;text-decoration:none;color:#F6F2EB">
+          <sc-for list="{{ ratings }}" as="r" hint-placeholder-count="3">
+            <span style="display:flex;align-items:baseline;gap:7px;font-size:14px"><strong style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:600;color:#EDA19D">{{ r.score }}</strong><span style="color:#E3D9CA">/{{ r.max }} · {{ r.platform }}</span></span>
+          </sc-for>
+        </a></div>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ heroEditorial }}" hint-placeholder-val="{{ false }}">
+  <section aria-labelledby="home-title" data-screen-label="Inicio · Hero" style="padding:clamp(28px,4vw,56px) clamp(18px,4vw,48px) clamp(64px,8vw,112px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)">
+      <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.home.kicker }}</p>
+      <h1 id="home-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(56px,10.5vw,176px);line-height:0.9;letter-spacing:-0.025em;text-wrap:balance">{{ t.home.title }}</h1>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 64px;padding-top:24px;border-top:1px solid #2B2521">
+        <p style="flex:1 1 380px;margin:0;font-size:clamp(17px,1.4vw,19px);line-height:1.6;color:#4F463F;max-width:34em;text-wrap:pretty">{{ t.home.lead }}</p>
+        <div style="display:flex;flex-direction:column;gap:18px;align-items:flex-start"><div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="{{ hrefs.rooms }}" onClick="{{ go.rooms }}" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;background:#2B2521;color:#F6F2EB;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#A82A33;color:#F6F2EB">{{ t.cta.rooms }}</a>
+          <a href="{{ bookingUrl }}" target="_blank" rel="noopener" aria-label="{{ t.cta.bookAria }}" style="display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 24px;border:1px solid #2B2521;color:#2B2521;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#2B2521;color:#F6F2EB">{{ t.cta.book }} <span aria-hidden="true">↗</span></a>
+        </div></div>
+      </div>
+      <figure style="margin:0">
+        <div style="position:relative;aspect-ratio:21/10;background:#E3D9CA;overflow:hidden"><image-slot id="home-hero" src="{{ img.heroExterior }}" shape="rect" placeholder="hero-exterior" role="img" aria-label="{{ t.alt.hero }}" style="position:absolute;inset:0"></image-slot></div>
+        <figcaption style="margin-top:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;font-size:13px;color:#6B5E53"><span>{{ t.home.heroCaption }}</span><a href="#opiniones" onClick="{{ go.homeReviews }}" style="display:flex;flex-wrap:wrap;gap:8px 22px;text-decoration:none;color:#2B2521">
+          <sc-for list="{{ ratings }}" as="r" hint-placeholder-count="3">
+            <span style="display:flex;align-items:baseline;gap:7px;font-size:14px"><strong style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:600;color:#A82A33">{{ r.score }}</strong><span style="color:#6B5E53">/{{ r.max }} · {{ r.platform }}</span></span>
+          </sc-for>
+        </a></figcaption>
+      </figure>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ heroDark }}" hint-placeholder-val="{{ true }}">
+  <section aria-labelledby="home-title" data-screen-label="Inicio · Hero" style="background:#2A221D;color:#F6F2EB">
+    <div style="display:flex;flex-wrap:wrap-reverse;min-height:max(560px,calc(100svh - 76px))">
+      <div style="flex:1 1 420px;display:flex;flex-direction:column;justify-content:center;gap:24px;padding:clamp(40px,6vw,96px) clamp(18px,4vw,48px) clamp(40px,6vw,96px) max(clamp(18px,4vw,48px),calc((100vw - 1320px) / 2 + 48px))">
+        <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#EDA19D">{{ t.home.kicker }}</p>
+        <h1 id="home-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(52px,7vw,112px);line-height:0.95;letter-spacing:-0.02em;text-wrap:balance">{{ t.home.title }}</h1>
+        <p style="margin:0;font-size:clamp(17px,1.4vw,19px);line-height:1.6;color:#D8CDBE;max-width:30em;text-wrap:pretty">{{ t.home.lead }}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="{{ hrefs.rooms }}" onClick="{{ go.rooms }}" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;background:#F6F2EB;color:#2B2521;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#A82A33;color:#F6F2EB">{{ t.cta.rooms }}</a>
+          <a href="{{ bookingUrl }}" target="_blank" rel="noopener" aria-label="{{ t.cta.bookAria }}" style="display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 24px;border:1px solid #F6F2EB;color:#F6F2EB;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#F6F2EB;color:#2B2521">{{ t.cta.book }} <span aria-hidden="true">↗</span></a>
+        </div>
+        <div style="margin-top:14px;padding-top:22px;border-top:1px solid #4A3E35"><a href="#opiniones" onClick="{{ go.homeReviews }}" style="display:flex;flex-wrap:wrap;gap:8px 22px;text-decoration:none;color:#F6F2EB">
+          <sc-for list="{{ ratings }}" as="r" hint-placeholder-count="3">
+            <span style="display:flex;align-items:baseline;gap:7px;font-size:14px"><strong style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:600;color:#EDA19D">{{ r.score }}</strong><span style="color:#E3D9CA">/{{ r.max }} · {{ r.platform }}</span></span>
+          </sc-for>
+        </a></div>
+      </div>
+      <div style="flex:1.25 1 480px;position:relative;min-height:min(70vh,520px)">
+        <sc-if value="{{ heroSide }}" hint-placeholder-val="{{ true }}"><div aria-hidden="true" style="position:absolute;top:0;bottom:0;left:-1px;width:42%;z-index:1;pointer-events:none;background:linear-gradient(to right, #2A221D 0%, rgba(42,34,29,0.85) 22%, rgba(42,34,29,0.4) 58%, rgba(42,34,29,0) 100%)"></div></sc-if>
+        <sc-if value="{{ heroStacked }}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="position:absolute;left:0;right:0;bottom:-1px;height:40%;z-index:1;pointer-events:none;background:linear-gradient(to top, #2A221D 0%, rgba(42,34,29,0.8) 25%, rgba(42,34,29,0) 100%)"></div></sc-if><image-slot id="home-hero" src="{{ img.heroExterior }}" shape="rect" placeholder="hero-exterior" role="img" aria-label="{{ t.alt.hero }}" style="position:absolute;inset:0"></image-slot></div>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ heroSplit }}" hint-placeholder-val="{{ false }}">
+  
+  <section aria-labelledby="home-title" data-screen-label="Inicio · Hero" style="padding:clamp(20px,3vw,40px) clamp(18px,4vw,48px) clamp(64px,8vw,112px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-wrap:wrap-reverse;align-items:center;gap:clamp(32px,5vw,80px)">
+      <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:26px">
+        <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.home.kicker }}</p>
+        <h1 id="home-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(50px,6.6vw,96px);line-height:0.98;letter-spacing:-0.015em;text-wrap:balance">{{ t.home.title }}</h1>
+        <p style="margin:0;font-size:clamp(17px,1.4vw,19px);line-height:1.6;color:#4F463F;max-width:34em;text-wrap:pretty">{{ t.home.lead }}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:6px">
+          <a href="{{ hrefs.rooms }}" onClick="{{ go.rooms }}" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;background:#2B2521;color:#F6F2EB;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#A82A33;color:#F6F2EB">{{ t.cta.rooms }}</a>
+          <a href="{{ bookingUrl }}" target="_blank" rel="noopener" aria-label="{{ t.cta.bookAria }}" style="display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 24px;border:1px solid #2B2521;color:#2B2521;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#2B2521;color:#F6F2EB">{{ t.cta.book }} <span aria-hidden="true">↗</span></a>
+        </div>
+        <a href="#opiniones" onClick="{{ go.homeReviews }}" style="display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;padding-top:22px;border-top:1px solid #DDD3C4;text-decoration:none;color:#2B2521">
+          <sc-for list="{{ ratings }}" as="r" hint-placeholder-count="3">
+            <span style="display:flex;align-items:baseline;gap:7px;font-size:14px"><strong style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:600">{{ r.score }}</strong><span style="color:#6B5E53">/{{ r.max }} · {{ r.platform }}</span></span>
+          </sc-for>
+        </a>
+      </div>
+      <figure style="flex:1.35 1 460px;min-width:0;margin:0">
+        <div style="position:relative;aspect-ratio:5/4;background:#E3D9CA;overflow:hidden">
+          <image-slot id="home-hero" src="{{ img.heroExterior }}" shape="rect" placeholder="hero-exterior" role="img" aria-label="{{ t.alt.hero }}" style="position:absolute;inset:0"></image-slot>
+        </div>
+        <figcaption style="margin-top:12px;font-size:13px;color:#6B5E53">{{ t.home.heroCaption }}</figcaption>
+      </figure>
+    </div>
+  </section>
+  </sc-if>
+
+  <section aria-labelledby="intro-title" data-screen-label="Inicio · La casa" style="padding:clamp(64px,9vw,128px) clamp(18px,4vw,48px);background:#EFE8DD">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,96px);align-items:center">
+      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:14px">
+        <div style="grid-column:1 / 3;position:relative;aspect-ratio:3/2;overflow:hidden;background:#E3D9CA">
+          <image-slot id="home-intro-reception" src="{{ img.reception }}" shape="rect" placeholder="reception" role="img" aria-label="{{ t.alt.reception }}" style="position:absolute;inset:0"></image-slot>
+        </div>
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#E3D9CA">
+          <image-slot id="home-intro-sign" src="{{ img.facadeSign }}" shape="rect" placeholder="facade-sign" role="img" aria-label="{{ t.alt.sign }}" style="position:absolute;inset:0"></image-slot>
+        </div>
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#E3D9CA">
+          <image-slot id="home-intro-paintings" src="{{ img.paintings }}" shape="rect" placeholder="detail-paintings" role="img" aria-label="{{ t.alt.paintings }}" style="position:absolute;inset:0"></image-slot>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.home.introKicker }}</p>
+        <h2 id="intro-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(36px,4.4vw,58px);line-height:1.04;letter-spacing:-0.01em;text-wrap:balance">{{ t.home.introTitle }}</h2>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#4F463F;text-wrap:pretty">{{ t.home.introP1 }}</p>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#4F463F;text-wrap:pretty">{{ t.home.introP2 }}</p>
+        <dl style="margin:12px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px">
+          <sc-for list="{{ t.home.facts }}" as="f" hint-placeholder-count="4">
+            <div style="padding:18px 0;border-top:1px solid #CFC3B2">
+              <dt style="font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;font-weight:600;line-height:1">{{ f.n }}</dt>
+              <dd style="margin:8px 0 0;font-size:14px;line-height:1.45;color:#5E544C">{{ f.l }}</dd>
+            </div>
+          </sc-for>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="home-rooms-title" data-screen-label="Inicio · Habitaciones" style="padding:clamp(64px,9vw,128px) clamp(18px,4vw,48px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 64px;margin-bottom:clamp(36px,5vw,56px)">
+        <div style="flex:1 1 420px;display:flex;flex-direction:column;gap:18px">
+          <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.home.roomsKicker }}</p>
+          <h2 id="home-rooms-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(36px,4.4vw,58px);line-height:1.04;letter-spacing:-0.01em">{{ t.home.roomsTitle }}</h2>
+        </div>
+        <div style="flex:0 1 400px;display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#4F463F">{{ t.home.roomsLead }}</p>
+          <a href="{{ hrefs.rooms }}" onClick="{{ go.rooms }}" style="color:#2B2521;font-weight:600;font-size:15px;text-decoration:none;border-bottom:1px solid #A82A33;padding-bottom:4px" style-hover="color:#A82A33">{{ t.home.roomsAll }} →</a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,3vw,40px)">
+        <sc-for list="{{ roomCards }}" as="c" hint-placeholder-count="3">
+          <article style="display:flex;flex-direction:column;gap:14px">
+            <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#E3D9CA">
+              <image-slot id="home-room-{{ c.key }}" src="{{ c.img }}" shape="rect" placeholder="{{ c.key }}" role="img" aria-label="{{ c.alt }}" style="position:absolute;inset:0"></image-slot>
+            </div>
+            <p style="margin:6px 0 0;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#A82A33">{{ c.label }}</p>
+            <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:32px;line-height:1.05">{{ c.title }}</h3>
+            <p style="margin:0;font-size:15.5px;line-height:1.6;color:#4F463F">{{ c.text }}</p>
+            <a href="{{ c.href }}" onClick="{{ c.onClick }}" style="align-self:flex-start;color:#2B2521;font-weight:600;font-size:14.5px;text-decoration:none;border-bottom:1px solid #A82A33;padding-bottom:3px" style-hover="color:#A82A33">{{ c.linkLabel }} →</a>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="opiniones" aria-labelledby="reviews-title" data-screen-label="Inicio · Opiniones" style="padding:clamp(64px,9vw,128px) clamp(18px,4vw,48px);background:#EFE8DD">
+    <div style="max-width:1240px;margin:0 auto">
+      <p style="margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.home.reviewsKicker }}</p>
+      <h2 id="reviews-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(36px,4.4vw,58px);line-height:1.04;letter-spacing:-0.01em;max-width:16em;text-wrap:balance">{{ t.home.reviewsTitle }}</h2>
+      <ul style="list-style:none;margin:clamp(36px,5vw,56px) 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));border-top:1px solid #CFC3B2">
+        <sc-for list="{{ ratings }}" as="r" hint-placeholder-count="3">
+          <li style="padding:28px 28px 28px 0;border-bottom:1px solid #CFC3B2">
+            <p style="margin:0;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase">{{ r.platform }}</p>
+            <p style="margin:12px 0 14px;display:flex;align-items:baseline;gap:6px"><span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:68px;font-weight:500;line-height:1;color:#A82A33">{{ r.score }}</span><span style="font-size:17px;color:#5E544C">/ {{ r.max }}</span></p>
+            <p style="margin:0 0 14px;font-size:14px;color:#5E544C">{{ r.count }}</p>
+            <a href="{{ r.url }}" target="_blank" rel="noopener" aria-label="{{ r.aria }}" style="font-size:14px;font-weight:600;color:#2B2521;text-decoration:none;border-bottom:1px solid #A82A33;padding-bottom:3px" style-hover="color:#A82A33">{{ t.home.readReviews }} ↗</a>
+          </li>
+        </sc-for>
+      </ul>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,4vw,56px);margin-top:clamp(48px,6vw,80px)">
+        <sc-for list="{{ reviews }}" as="q" hint-placeholder-count="3">
+          <figure style="margin:0;display:flex;flex-direction:column;gap:18px">
+            <blockquote style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(24px,2.2vw,29px);line-height:1.25;text-wrap:pretty">{{ q.text }}</blockquote>
+            <figcaption style="display:flex;flex-direction:column;gap:4px;font-size:14px;color:#5E544C">
+              <span style="color:#2B2521;font-weight:600">{{ q.name }}</span>
+              <span><a href="{{ q.href }}" target="_blank" rel="noopener" style="color:#5E544C" style-hover="color:#A82A33">{{ q.platform }}</a><sc-if value="{{ q.hasNote }}" hint-placeholder-val="{{ false }}"> · {{ q.note }}</sc-if></span>
+            </figcaption>
+          </figure>
+        </sc-for>
+      </div>
+      <p style="margin:clamp(36px,4vw,48px) 0 0;font-size:13px;color:#6B5E53">{{ t.home.reviewsNote }}</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="home-rest-title" data-screen-label="Inicio · Comer y beber" style="padding:clamp(64px,9vw,128px) clamp(18px,4vw,48px);background:#2A221D;color:#F1EADF">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 64px;margin-bottom:clamp(36px,5vw,56px)">
+        <div style="flex:1 1 420px;display:flex;flex-direction:column;gap:18px">
+          <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#E28A86">{{ t.home.restKicker }}</p>
+          <h2 id="home-rest-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(38px,4.6vw,62px);line-height:1.02;letter-spacing:-0.01em;text-wrap:balance">{{ t.home.restTitle }}</h2>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,5vw,64px)">
+        <sc-for list="{{ restSpaces }}" as="sp" hint-placeholder-count="2">
+          <article style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:grid;grid-template-columns:1.6fr 1fr;grid-template-rows:100%;gap:10px;aspect-ratio:16/10">
+              <div style="position:relative;overflow:hidden;background:#3A2F28"><image-slot id="home-space-{{ sp.key }}-a" src="{{ sp.imgA }}" shape="rect" placeholder="{{ sp.key }}-main" role="img" aria-label="{{ sp.altA }}" style="position:absolute;inset:0"></image-slot></div>
+              <div style="position:relative;overflow:hidden;background:#3A2F28"><image-slot id="home-space-{{ sp.key }}-b" src="{{ sp.imgB }}" shape="rect" placeholder="{{ sp.key }}-detail" role="img" aria-label="{{ sp.altB }}" style="position:absolute;inset:0"></image-slot></div>
+            </div>
+            <p style="margin:8px 0 0;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#E28A86">{{ sp.label }}</p>
+            <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(30px,3vw,38px);line-height:1.05">{{ sp.title }}</h3>
+            <p style="margin:0;font-size:15.5px;line-height:1.6;color:#D8CDBE;text-wrap:pretty">{{ sp.text }}</p>
+            <dl style="margin:4px 0 0;display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:14px 0;border-top:1px solid #4A3E35;border-bottom:1px solid #4A3E35">
+              <dt style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#E28A86">{{ sp.fl }}</dt>
+              <dd style="margin:0;font-size:15.5px">{{ sp.fv }}</dd>
+            </dl>
+            <a href="{{ sp.href }}" onClick="{{ sp.onClick }}" style="align-self:flex-start;color:#F1EADF;font-weight:600;font-size:14.5px;text-decoration:none;border-bottom:1px solid #E28A86;padding-bottom:3px;margin-top:4px" style-hover="color:#E28A86">{{ sp.linkLabel }} →</a>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="details-title" data-screen-label="Inicio · Detalles" style="padding:clamp(64px,9vw,128px) clamp(18px,4vw,48px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <p style="margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.home.detailsKicker }}</p>
+      <h2 id="details-title" style="margin:0 0 clamp(36px,5vw,56px);font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(36px,4.4vw,58px);line-height:1.04;letter-spacing:-0.01em;max-width:14em;text-wrap:balance">{{ t.home.detailsTitle }}</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(24px,3vw,36px)">
+        <sc-for list="{{ details }}" as="d" hint-placeholder-count="4">
+          <article style="display:flex;flex-direction:column;gap:12px">
+            <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#E3D9CA">
+              <image-slot id="home-detail-{{ d.key }}" src="{{ d.img }}" shape="rect" placeholder="{{ d.key }}" role="img" aria-label="{{ d.alt }}" style="position:absolute;inset:0"></image-slot>
+            </div>
+            <h3 style="margin:8px 0 0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:25px;line-height:1.1">{{ d.title }}</h3>
+            <p style="margin:0;font-size:15px;line-height:1.6;color:#4F463F;text-wrap:pretty">{{ d.text }}</p>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="home-camino-title" data-screen-label="Inicio · Camino" style="padding:clamp(64px,9vw,128px) clamp(18px,4vw,48px);background:#E5E2D2">
+    <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(36px,6vw,88px)">
+      <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:22px">
+        <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#525834">{{ t.home.caminoKicker }}</p>
+        <h2 id="home-camino-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(36px,4.4vw,58px);line-height:1.04;letter-spacing:-0.01em;text-wrap:balance">{{ t.home.caminoTitle }}</h2>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#45463A;text-wrap:pretty">{{ t.home.caminoP }}</p>
+        <ul style="list-style:none;margin:4px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:0 28px">
+          <sc-for list="{{ t.home.caminoList }}" as="li" hint-placeholder-count="4">
+            <li style="display:flex;gap:12px;align-items:baseline;padding:14px 0;border-top:1px solid #C3BFA8;font-size:15.5px"><span aria-hidden="true" style="width:7px;height:7px;background:#5F6440;transform:rotate(45deg);flex-shrink:0;position:relative;top:-2px"></span>{{ li }}</li>
+          </sc-for>
+        </ul>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px">
+          <a href="{{ hrefs.camino }}" onClick="{{ go.camino }}" style="display:inline-flex;align-items:center;min-height:50px;padding:0 24px;background:#2B2521;color:#F6F2EB;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#525834;color:#F6F2EB">{{ t.home.caminoCta }}</a>
+          <a href="tel:+34660600183" style="display:inline-flex;align-items:center;min-height:50px;padding:0 22px;border:1px solid #2B2521;color:#2B2521;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#2B2521;color:#F6F2EB">{{ t.cta.call }} · +34 660 600 183</a>
+        </div>
+      </div>
+      <div style="flex:1.1 1 420px;min-width:0;position:relative;aspect-ratio:3/2;overflow:hidden;background:#D6D2BE">
+        <image-slot id="home-camino" src="{{ img.exteriorFountain }}" shape="rect" placeholder="exterior-fountain" role="img" aria-label="{{ t.alt.fountain }}" style="position:absolute;inset:0"></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="home-services-title" data-screen-label="Inicio · Servicios" style="padding:clamp(64px,9vw,128px) clamp(18px,4vw,48px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 48px;margin-bottom:clamp(32px,4vw,48px)">
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.home.servicesKicker }}</p>
+          <h2 id="home-services-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(36px,4.4vw,58px);line-height:1.04;letter-spacing:-0.01em">{{ t.home.servicesTitle }}</h2>
+        </div>
+        <a href="{{ hrefs.services }}" onClick="{{ go.services }}" style="color:#2B2521;font-weight:600;font-size:15px;text-decoration:none;border-bottom:1px solid #A82A33;padding-bottom:4px" style-hover="color:#A82A33">{{ t.home.servicesMore }} →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:0 32px;border-top:1px solid #2B2521">
+        <sc-for list="{{ t.services }}" as="s" hint-placeholder-count="5">
+          <div style="padding:22px 0 26px;border-bottom:1px solid #DDD3C4;display:flex;flex-direction:column;gap:10px">
+            <span style="font-size:12px;font-weight:600;letter-spacing:0.12em;color:#A82A33">{{ s.n }}</span>
+            <h3 style="margin:0;font-size:17px;font-weight:600;line-height:1.3">{{ s.title }}</h3>
+            <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px">
+              <sc-for list="{{ s.items }}" as="it" hint-placeholder-count="3">
+                <li style="font-size:14.5px;line-height:1.45;color:#4F463F">{{ it }}</li>
+              </sc-for>
+            </ul>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="home-explore-title" data-screen-label="Inicio · Entorno" style="padding:0 clamp(18px,4vw,48px) clamp(64px,9vw,128px)">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(36px,6vw,88px);align-items:center">
+      <div style="position:relative;aspect-ratio:16/11;overflow:hidden;background:#E3D9CA">
+        <image-slot id="home-explore" src="{{ img.navarraFirst }}" shape="rect" placeholder="surroundings-navarra" role="img" aria-label="{{ t.alt.navarra }}" style="position:absolute;inset:0"></image-slot>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.home.exploreKicker }}</p>
+        <h2 id="home-explore-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(36px,4.4vw,58px);line-height:1.04;letter-spacing:-0.01em">{{ t.home.exploreTitle }}</h2>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#4F463F;text-wrap:pretty">{{ t.home.exploreP }}</p>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ placeNames }}" as="p" hint-placeholder-count="8">
+            <li style="padding:7px 12px;border:1px solid #CFC3B2;font-size:13.5px;color:#4F463F">{{ p }}</li>
+          </sc-for>
+        </ul>
+        <a href="{{ hrefs.area }}" onClick="{{ go.area }}" style="align-self:flex-start;color:#2B2521;font-weight:600;font-size:15px;text-decoration:none;border-bottom:1px solid #A82A33;padding-bottom:4px;margin-top:4px" style-hover="color:#A82A33">{{ t.home.exploreMore }} →</a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="final-title" data-screen-label="Inicio · Reserva" style="padding:clamp(72px,10vw,140px) clamp(18px,4vw,48px);background:#EFE8DD;text-align:center">
+    <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px">
+      <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.home.finalKicker }}</p>
+      <h2 id="final-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(40px,5.4vw,72px);line-height:1;letter-spacing:-0.015em;text-wrap:balance">{{ t.home.finalTitle }}</h2>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#4F463F;max-width:34em;text-wrap:pretty">{{ t.home.finalP }}</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:8px">
+        <a href="{{ bookingUrl }}" target="_blank" rel="noopener" aria-label="{{ t.cta.availAria }}" style="display:inline-flex;align-items:center;gap:8px;min-height:54px;padding:0 28px;background:#A82A33;color:#FBF8F3;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#86202A;color:#FBF8F3">{{ t.cta.avail }} <span aria-hidden="true">↗</span></a>
+        <a href="{{ hrefs.contact }}" onClick="{{ go.contact }}" style="display:inline-flex;align-items:center;min-height:54px;padding:0 24px;border:1px solid #2B2521;color:#2B2521;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#2B2521;color:#F6F2EB">{{ t.cta.contact }}</a>
+      </div>
+      <p style="margin:18px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 20px;font-size:14px;color:#5E544C">
+        <sc-for list="{{ ratings }}" as="r" hint-placeholder-count="3"><span>{{ r.platform }} <strong style="color:#2B2521">{{ r.score }}/{{ r.max }}</strong></span></sc-for>
+      </p>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ======================= ROOMS ======================= -->
+<sc-if value="{{ isRooms }}" hint-placeholder-val="{{ false }}">
+  <section aria-labelledby="rooms-title" data-screen-label="Habitaciones · Hero" style="padding:clamp(28px,4vw,56px) clamp(18px,4vw,48px) clamp(56px,7vw,96px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-wrap:wrap-reverse;align-items:center;gap:clamp(32px,5vw,80px)">
+      <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:24px">
+        <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.rooms.kicker }}</p>
+        <h1 id="rooms-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(44px,5.6vw,80px);line-height:1;letter-spacing:-0.015em;text-wrap:balance">{{ t.rooms.title }}</h1>
+        <p style="margin:0;font-size:18px;line-height:1.6;color:#4F463F;max-width:34em;text-wrap:pretty">{{ t.rooms.lead }}</p>
+        <nav aria-label="{{ t.rooms.kicker }}" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px">
+          <sc-for list="{{ roomsJump }}" as="j" hint-placeholder-count="4">
+            <a href="{{ j.href }}" onClick="{{ j.onClick }}" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid #CFC3B2;color:#2B2521;text-decoration:none;font-size:14px;font-weight:500;border-radius:2px" style-hover="border-color:#2B2521">{{ j.l }}</a>
+          </sc-for>
+        </nav>
+      </div>
+      <div style="flex:1.3 1 460px;min-width:0;position:relative;aspect-ratio:4/3;overflow:hidden;background:#E3D9CA">
+        <image-slot id="rooms-hero" src="{{ img.roomAtticCarved }}" shape="rect" placeholder="room-attic-carved-headboard" role="img" aria-label="{{ t.alt.roomAtticCarved }}" style="position:absolute;inset:0"></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <sc-for list="{{ floors }}" as="fl" hint-placeholder-count="2">
+    <section id="{{ fl.id }}" aria-labelledby="{{ fl.id }}-title" data-screen-label="Habitaciones · {{ fl.label }}" style="padding:clamp(64px,8vw,112px) clamp(18px,4vw,48px);border-top:1px solid #DDD3C4;background:{{ fl.bg }}">
+      <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(36px,6vw,88px);align-items:stretch">
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:minmax(260px,3fr) minmax(170px,2fr);gap:12px">
+          <div style="grid-column:1 / 3;position:relative;overflow:hidden;background:#E3D9CA">
+            <image-slot id="rooms-{{ fl.id }}-main" src="{{ fl.img1 }}" shape="rect" placeholder="{{ fl.id }}-main" role="img" aria-label="{{ fl.alt1 }}" style="position:absolute;inset:0"></image-slot>
+          </div>
+          <div style="position:relative;overflow:hidden;background:#E3D9CA">
+            <image-slot id="rooms-{{ fl.id }}-b" src="{{ fl.img2 }}" shape="rect" placeholder="{{ fl.id }}-detail" role="img" aria-label="{{ fl.alt2 }}" style="position:absolute;inset:0"></image-slot>
+          </div>
+          <div style="position:relative;overflow:hidden;background:#E3D9CA">
+            <image-slot id="rooms-{{ fl.id }}-c" src="{{ fl.img3 }}" shape="rect" placeholder="{{ fl.id }}-detail" role="img" aria-label="{{ fl.alt3 }}" style="position:absolute;inset:0"></image-slot>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ fl.label }}</p>
+          <h2 id="{{ fl.id }}-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(34px,4vw,52px);line-height:1.04;letter-spacing:-0.01em;text-wrap:balance">{{ fl.title }}</h2>
+          <p style="margin:0;font-size:17px;line-height:1.65;color:#4F463F;text-wrap:pretty">{{ fl.text }}</p>
+          <ul style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column">
+            <sc-for list="{{ fl.types }}" as="ty" hint-placeholder-count="2">
+              <li style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;padding:18px 0;border-top:1px solid #CFC3B2">
+                <div style="display:flex;flex-direction:column;gap:5px">
+                  <h3 style="margin:0;font-size:17px;font-weight:600">{{ ty.name }}</h3>
+                  <p style="margin:0;font-size:15px;color:#5E544C">{{ ty.spec }}</p>
+                </div>
+                <span style="font-size:13px;font-weight:600;letter-spacing:0.06em;color:#5E544C;white-space:nowrap">{{ ty.occ }}</span>
+              </li>
+            </sc-for>
+          </ul>
+          <sc-if value="{{ fl.hasFamily }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:20px 22px;background:#E5E2D2;display:flex;flex-direction:column;gap:6px">
+              <h3 style="margin:0;font-size:16px;font-weight:600">{{ t.rooms.family.title }}</h3>
+              <p style="margin:0;font-size:15px;line-height:1.55;color:#45463A">{{ t.rooms.family.text }}</p>
+            </div>
+          </sc-if>
+          <sc-if value="{{ fl.hasFeatures }}" hint-placeholder-val="{{ false }}">
+            <ul style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column">
+              <sc-for list="{{ fl.features }}" as="ft" hint-placeholder-count="4">
+                <li style="display:flex;gap:12px;align-items:baseline;padding:14px 0;border-top:1px solid #CFC3B2;font-size:15.5px"><span aria-hidden="true" style="width:7px;height:7px;background:#A82A33;transform:rotate(45deg);flex-shrink:0;position:relative;top:-2px"></span>{{ ft }}</li>
+              </sc-for>
+            </ul>
+          </sc-if>
+          <a href="{{ bookingUrl }}" target="_blank" rel="noopener" aria-label="{{ t.cta.availAria }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 24px;background:#A82A33;color:#FBF8F3;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px;margin-top:6px" style-hover="background:#86202A;color:#FBF8F3">{{ t.cta.avail }} <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </sc-for>
+
+  <section id="equipamiento" aria-labelledby="amen-title" data-screen-label="Habitaciones · Equipamiento" style="padding:clamp(64px,8vw,112px) clamp(18px,4vw,48px);background:#2A221D;color:#F1EADF">
+    <div style="max-width:1240px;margin:0 auto">
+      <p style="margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#E28A86">{{ t.rooms.amenitiesKicker }}</p>
+      <h2 id="amen-title" style="margin:0 0 clamp(28px,4vw,44px);font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(34px,4vw,52px);line-height:1.04">{{ t.rooms.amenitiesTitle }}</h2>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:0 32px">
+        <sc-for list="{{ t.rooms.amenities }}" as="a" hint-placeholder-count="9">
+          <li style="padding:16px 0;border-top:1px solid #4A3E35;font-size:15.5px">{{ a }}</li>
+        </sc-for>
+      </ul>
+      <p style="margin:28px 0 0;font-size:15px;line-height:1.6;color:#C9BCAB;max-width:44em">{{ t.rooms.accessNote }}</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="rooms-cta-title" data-screen-label="Habitaciones · Reserva" style="padding:clamp(64px,9vw,120px) clamp(18px,4vw,48px);text-align:center">
+    <div style="max-width:680px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:20px">
+      <h2 id="rooms-cta-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(38px,5vw,64px);line-height:1">{{ t.rooms.ctaTitle }}</h2>
+      <p style="margin:0;font-size:17px;line-height:1.6;color:#4F463F">{{ t.rooms.ctaP }}</p>
+      <a href="{{ bookingUrl }}" target="_blank" rel="noopener" aria-label="{{ t.cta.bookAria }}" style="display:inline-flex;align-items:center;gap:8px;min-height:54px;padding:0 28px;background:#A82A33;color:#FBF8F3;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px;margin-top:8px" style-hover="background:#86202A;color:#FBF8F3">{{ t.cta.book }} <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ======================= RESTAURANT ======================= -->
+<sc-if value="{{ isRestaurant }}" hint-placeholder-val="{{ false }}">
+  <section aria-labelledby="rest-title" data-screen-label="Comer y beber · Hero" style="padding:clamp(40px,6vw,88px) clamp(18px,4vw,48px);background:#2A221D;color:#F1EADF">
+    <div style="max-width:1320px;margin:0 auto">
+      <div style="max-width:820px;display:flex;flex-direction:column;gap:22px">
+        <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#E28A86">{{ t.restaurant.kicker }}</p>
+        <h1 id="rest-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(44px,5.6vw,80px);line-height:1;letter-spacing:-0.015em;text-wrap:balance">{{ t.restaurant.title }}</h1>
+        <p style="margin:0;font-size:18px;line-height:1.6;color:#D8CDBE;max-width:36em;text-wrap:pretty">{{ t.restaurant.lead }}</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(20px,3vw,36px);margin-top:clamp(36px,5vw,56px)">
+        <sc-for list="{{ restHero }}" as="sp" hint-placeholder-count="2">
+          <div style="display:flex;flex-direction:column;gap:16px;color:#F1EADF">
+            <div style="position:relative;aspect-ratio:3/2;overflow:hidden;background:#3A2F28"><image-slot id="rest-hero-{{ sp.id }}" src="{{ sp.img }}" shape="rect" placeholder="{{ sp.id }}" role="img" aria-label="{{ sp.alt }}" style="position:absolute;inset:0"></image-slot></div>
+            <div style="display:flex;align-items:baseline;gap:14px;padding-top:4px">
+              <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;color:#E28A86">{{ sp.n }}</span>
+              <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,3vw,40px);font-weight:500;line-height:1">{{ sp.name }}</span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;padding-top:14px;border-top:1px solid #4A3E35;font-size:15px;color:#D8CDBE">
+              <span style="color:#F1EADF;font-weight:600">{{ sp.role }}</span><span>{{ sp.info }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="bodega" aria-labelledby="bodega-title" data-screen-label="Comer y beber · La bodega" style="padding:clamp(64px,9vw,128px) clamp(18px,4vw,48px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(36px,6vw,88px);align-items:start">
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.restaurant.bodegaLabel }}</p>
+          <h2 id="bodega-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(36px,4.4vw,58px);line-height:1.04;letter-spacing:-0.01em;text-wrap:balance">{{ t.restaurant.bodegaTitle }}</h2>
+          <p style="margin:0;font-size:17px;line-height:1.65;color:#4F463F;text-wrap:pretty">{{ t.restaurant.bodegaP }}</p>
+          <h3 style="margin:10px 0 0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:27px">{{ t.restaurant.dinnerTitle }}</h3>
+          <p style="margin:0;font-size:16.5px;line-height:1.65;color:#4F463F;text-wrap:pretty">{{ t.restaurant.dinnerP }}</p>
+          <dl style="margin:0;display:flex;flex-direction:column">
+            <sc-for list="{{ t.restaurant.bodegaFacts }}" as="p" hint-placeholder-count="3">
+              <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:16px;padding:16px 0;border-top:1px solid #CFC3B2">
+                <dt style="font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#5E544C">{{ p.l }}</dt>
+                <dd style="margin:0;font-size:15.5px;line-height:1.5">{{ p.v }}</dd>
+              </div>
+            </sc-for>
+          </dl>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div style="grid-column:1 / 3;position:relative;aspect-ratio:3/2;overflow:hidden;background:#E3D9CA"><image-slot id="rest-bodega-a" src="{{ img.cellar }}" shape="rect" placeholder="restaurant-cellar" role="img" aria-label="{{ t.alt.cellar }}" style="position:absolute;inset:0"></image-slot></div>
+          <div style="grid-column:1 / 3;position:relative;aspect-ratio:3/2;overflow:hidden;background:#E3D9CA"><image-slot id="rest-bodega-b" src="{{ img.webRestaurant }}" shape="rect" placeholder="restaurant-cellar-2" role="img" aria-label="{{ t.alt.cellar }}" style="position:absolute;inset:0"></image-slot></div>
+        </div>
+      </div>
+      <ol style="list-style:none;margin:clamp(48px,6vw,72px) 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:0 32px">
+        <sc-for list="{{ t.restaurant.storyDetails }}" as="sd" hint-placeholder-count="3">
+          <li style="display:flex;flex-direction:column;gap:8px;padding:22px 0;border-top:1px solid #2B2521">
+            <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;color:#A82A33;line-height:1">{{ sd.n }}</span>
+            <h3 style="margin:0;font-size:17px;font-weight:600">{{ sd.t }}</h3>
+            <p style="margin:0;font-size:15px;line-height:1.55;color:#4F463F">{{ sd.d }}</p>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="glass-title" data-screen-label="Comer y beber · El cristal" style="padding:clamp(56px,7vw,96px) clamp(18px,4vw,48px);background:#2A221D;color:#F1EADF;text-align:center">
+    <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:18px">
+      <span aria-hidden="true" style="display:flex;gap:10px;align-items:center"><span style="width:44px;height:1px;background:#E28A86"></span><span style="width:8px;height:8px;background:#E28A86;transform:rotate(45deg)"></span><span style="width:44px;height:1px;background:#E28A86"></span></span>
+      <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#E28A86">{{ t.restaurant.glassKicker }}</p>
+      <h2 id="glass-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(34px,4vw,52px);line-height:1.04">{{ t.restaurant.glassTitle }}</h2>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#D8CDBE;text-wrap:pretty">{{ t.restaurant.glassP }}</p>
+    </div>
+  </section>
+
+  <section id="cafeteria" aria-labelledby="cafe-title" data-screen-label="Comer y beber · La cafetería" style="padding:clamp(64px,9vw,128px) clamp(18px,4vw,48px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(36px,6vw,88px);align-items:center">
+        <div style="position:relative;aspect-ratio:3/2;overflow:hidden;background:#E3D9CA"><image-slot id="rest-cafe" src="{{ img.cafeBar }}" shape="rect" placeholder="cafe-bar" role="img" aria-label="{{ t.alt.cafe }}" style="position:absolute;inset:0"></image-slot></div>
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.restaurant.cafeLabel }}</p>
+          <h2 id="cafe-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(36px,4.4vw,58px);line-height:1.04;letter-spacing:-0.01em;text-wrap:balance">{{ t.restaurant.cafeTitle }}</h2>
+          <p style="margin:0;font-size:17px;line-height:1.65;color:#4F463F;text-wrap:pretty">{{ t.restaurant.cafeP }}</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(28px,3vw,40px);margin-top:clamp(48px,6vw,80px)">
+        <sc-for list="{{ cafeBlocks }}" as="b" hint-placeholder-count="3">
+          <article style="display:flex;flex-direction:column;gap:12px">
+            <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#E3D9CA"><image-slot id="rest-cafe-{{ b.key }}" src="{{ b.img }}" shape="rect" placeholder="{{ b.key }}" role="img" aria-label="{{ b.alt }}" style="position:absolute;inset:0"></image-slot></div>
+            <h3 style="margin:8px 0 0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:26px;line-height:1.1">{{ b.t }}</h3>
+            <p style="margin:0;font-size:15.5px;line-height:1.6;color:#4F463F;text-wrap:pretty">{{ b.d }}</p>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="practical-title" data-screen-label="Comer y beber · Información" style="padding:clamp(64px,9vw,120px) clamp(18px,4vw,48px);background:#EFE8DD">
+    <div style="max-width:1240px;margin:0 auto">
+      <h2 id="practical-title" style="margin:0 0 clamp(28px,4vw,44px);font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(34px,4vw,52px);line-height:1.04">{{ t.restaurant.practicalKicker }}</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(32px,4vw,56px)">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <h3 style="margin:0;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#A82A33">{{ t.restaurant.bodegaName }}</h3>
+          <dl style="margin:0;display:flex;flex-direction:column">
+            <sc-for list="{{ t.restaurant.bodegaFacts }}" as="p" hint-placeholder-count="3">
+              <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:16px;padding:16px 0;border-top:1px solid #CFC3B2">
+                <dt style="font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#5E544C">{{ p.l }}</dt>
+                <dd style="margin:0;font-size:15.5px;line-height:1.5">{{ p.v }}</dd>
+              </div>
+            </sc-for>
+          </dl>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <h3 style="margin:0;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#A82A33">{{ t.restaurant.cafeName }}</h3>
+          <dl style="margin:0;display:flex;flex-direction:column">
+            <sc-for list="{{ t.restaurant.cafeFacts }}" as="p" hint-placeholder-count="3">
+              <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:16px;padding:16px 0;border-top:1px solid #CFC3B2">
+                <dt style="font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#5E544C">{{ p.l }}</dt>
+                <dd style="margin:0;font-size:15.5px;line-height:1.5">{{ p.v }}</dd>
+              </div>
+            </sc-for>
+          </dl>
+        </div>
+        <div style="padding:clamp(26px,3vw,36px);background:#2A221D;color:#F1EADF;display:flex;flex-direction:column;gap:14px;align-self:start">
+          <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(28px,3vw,36px);line-height:1.1">{{ t.restaurant.ctaTitle }}</h3>
+          <p style="margin:0;font-size:15.5px;line-height:1.6;color:#D8CDBE">{{ t.restaurant.ctaP }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:4px">
+            <a href="tel:+34660600183" style="display:inline-flex;align-items:center;min-height:48px;padding:0 18px;background:#F1EADF;color:#2A221D;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#E28A86;color:#2A221D">+34 660 600 183</a>
+            <a href="mailto:info@latorrien.es" style="display:inline-flex;align-items:center;min-height:48px;padding:0 18px;border:1px solid #F1EADF;color:#F1EADF;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#F1EADF;color:#2A221D">info@latorrien.es</a>
+          </div>
+          <a href="{{ bookingUrl }}" target="_blank" rel="noopener" aria-label="{{ t.cta.bookAria }}" style="align-self:flex-start;color:#F1EADF;font-size:14.5px;font-weight:600;text-decoration:none;border-bottom:1px solid #E28A86;padding-bottom:3px;margin-top:6px" style-hover="color:#E28A86">{{ t.cta.book }} ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ======================= EXPERIENCE ======================= -->
+<sc-if value="{{ isExperience }}" hint-placeholder-val="{{ false }}">
+  <section aria-labelledby="exp-title" data-screen-label="Experiencia · Hero" style="padding:clamp(28px,4vw,56px) clamp(18px,4vw,48px) clamp(56px,7vw,96px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-wrap:wrap-reverse;align-items:center;gap:clamp(32px,5vw,80px)">
+      <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:24px">
+        <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.experience.kicker }}</p>
+        <h1 id="exp-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(44px,5.6vw,80px);line-height:1;letter-spacing:-0.015em;text-wrap:balance">{{ t.experience.title }}</h1>
+        <p style="margin:0;font-size:18px;line-height:1.6;color:#4F463F;max-width:32em;text-wrap:pretty">{{ t.experience.lead }}</p>
+        <nav aria-label="{{ t.experience.kicker }}" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px">
+          <sc-for list="{{ expJump }}" as="j" hint-placeholder-count="3">
+            <a href="{{ j.href }}" onClick="{{ j.onClick }}" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid #CFC3B2;color:#2B2521;text-decoration:none;font-size:14px;font-weight:500;border-radius:2px" style-hover="border-color:#2B2521">{{ j.l }}</a>
+          </sc-for>
+        </nav>
+      </div>
+      <div style="flex:1.3 1 460px;min-width:0;position:relative;aspect-ratio:3/2;overflow:hidden;background:#E3D9CA">
+        <image-slot id="exp-hero" src="{{ img.lounge }}" shape="rect" placeholder="lounge" role="img" aria-label="{{ t.alt.lounge }}" style="position:absolute;inset:0"></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" aria-labelledby="svc-title" data-screen-label="Experiencia · Servicios" style="padding:clamp(64px,8vw,112px) clamp(18px,4vw,48px);border-top:1px solid #DDD3C4">
+    <div style="max-width:1240px;margin:0 auto">
+      <p style="margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.experience.servicesKicker }}</p>
+      <h2 id="svc-title" style="margin:0 0 clamp(32px,4vw,48px);font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(36px,4.4vw,58px);line-height:1.04">{{ t.experience.servicesTitle }}</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:0 clamp(32px,5vw,72px)">
+        <sc-for list="{{ t.services }}" as="s" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;padding:26px 0;border-top:1px solid #2B2521">
+            <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:#A82A33;line-height:1">{{ s.n }}</span>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <h3 style="margin:0;font-size:18px;font-weight:600">{{ s.title }}</h3>
+              <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px">
+                <sc-for list="{{ s.items }}" as="it" hint-placeholder-count="3">
+                  <li style="font-size:15.5px;line-height:1.5;color:#4F463F">{{ it }}</li>
+                </sc-for>
+              </ul>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="camino" aria-labelledby="exp-camino-title" data-screen-label="Experiencia · Camino" style="padding:clamp(64px,8vw,112px) clamp(18px,4vw,48px);background:#E5E2D2">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(36px,6vw,88px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#525834">{{ t.experience.caminoKicker }}</p>
+        <h2 id="exp-camino-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(36px,4.4vw,58px);line-height:1.04;letter-spacing:-0.01em;text-wrap:balance">{{ t.experience.caminoTitle }}</h2>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#45463A;text-wrap:pretty">{{ t.experience.caminoP }}</p>
+        <ol style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column">
+          <sc-for list="{{ caminoSteps }}" as="cs" hint-placeholder-count="3">
+            <li style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;padding:18px 0;border-top:1px solid #C3BFA8">
+              <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;color:#525834;line-height:1">{{ cs.n }}</span>
+              <div style="display:flex;flex-direction:column;gap:4px"><h3 style="margin:0;font-size:16.5px;font-weight:600">{{ cs.t }}</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#45463A">{{ cs.d }}</p></div>
+            </li>
+          </sc-for>
+        </ol>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:6px">
+          <a href="tel:+34660600183" style="display:inline-flex;align-items:center;min-height:50px;padding:0 22px;background:#2B2521;color:#F6F2EB;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#525834;color:#F6F2EB">{{ t.cta.call }} · +34 660 600 183</a>
+          <a href="mailto:info@latorrien.es" style="display:inline-flex;align-items:center;min-height:50px;padding:0 22px;border:1px solid #2B2521;color:#2B2521;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#2B2521;color:#F6F2EB">info@latorrien.es</a>
+        </div>
+      </div>
+      <div style="position:relative;aspect-ratio:3/2;overflow:hidden;background:#D6D2BE">
+        <image-slot id="exp-camino" src="{{ img.facadeSign }}" shape="rect" placeholder="facade-sign" role="img" aria-label="{{ t.alt.sign }}" style="position:absolute;inset:0"></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <section id="entorno" aria-labelledby="area-title" data-screen-label="Experiencia · Entorno" style="padding:clamp(64px,8vw,112px) clamp(18px,4vw,48px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 64px;margin-bottom:clamp(32px,4vw,48px)">
+        <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:18px">
+          <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.experience.areaKicker }}</p>
+          <h2 id="area-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(36px,4.4vw,58px);line-height:1.04">{{ t.experience.areaTitle }}</h2>
+        </div>
+        <p style="flex:0 1 440px;margin:0;font-size:16px;line-height:1.6;color:#4F463F">{{ t.experience.areaLead }}</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,4vw,56px)">
+        <sc-for list="{{ t.experience.groups }}" as="g" hint-placeholder-count="3">
+          <div style="display:flex;flex-direction:column">
+            <h3 style="margin:0 0 6px;padding-bottom:14px;border-bottom:1px solid #2B2521;font-family:'Cormorant Garamond',Georgia,serif;font-size:27px;font-weight:600">{{ g.title }}</h3>
+            <ul style="list-style:none;margin:0;padding:0">
+              <sc-for list="{{ g.items }}" as="p" hint-placeholder-count="3">
+                <li style="padding:14px 0;border-bottom:1px solid #DDD3C4;display:flex;flex-direction:column;gap:4px">
+                  <span style="font-size:16px;font-weight:600">{{ p.n }}</span>
+                  <span style="font-size:14.5px;line-height:1.5;color:#5E544C">{{ p.d }}</span>
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+        </sc-for>
+      </div>
+      <a href="{{ links.visitNavarra }}" target="_blank" rel="noopener" style="display:inline-block;margin-top:32px;color:#2B2521;font-weight:600;font-size:15px;text-decoration:none;border-bottom:1px solid #A82A33;padding-bottom:4px" style-hover="color:#A82A33">{{ t.experience.visitNavarra }} ↗</a>
+      <div style="margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:10px">
+        <sc-for list="{{ navarra }}" as="n" hint-placeholder-count="12">
+          <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#E3D9CA">
+            <image-slot id="area-{{ n.i }}" src="{{ n.src }}" shape="rect" placeholder="surroundings-{{ n.i }}" role="img" aria-label="{{ t.alt.navarra }}" style="position:absolute;inset:0"></image-slot>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="exp-contact-title" data-screen-label="Experiencia · Contacto" style="padding:clamp(56px,7vw,96px) clamp(18px,4vw,48px);background:#2A221D;color:#F1EADF">
+    <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:10px;flex:1 1 360px">
+        <h2 id="exp-contact-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(32px,3.6vw,48px);line-height:1.05">{{ t.experience.contactTitle }}</h2>
+        <p style="margin:0;font-size:16px;color:#D8CDBE">{{ t.experience.contactP }}</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a href="{{ hrefs.contact }}" onClick="{{ go.contact }}" style="display:inline-flex;align-items:center;min-height:50px;padding:0 22px;background:#F1EADF;color:#2A221D;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#E28A86;color:#2A221D">{{ t.cta.contact }}</a>
+        <a href="{{ bookingUrl }}" target="_blank" rel="noopener" aria-label="{{ t.cta.bookAria }}" style="display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 22px;border:1px solid #F1EADF;color:#F1EADF;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#F1EADF;color:#2A221D">{{ t.cta.book }} <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ======================= CONTACT ======================= -->
+<sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+  <section aria-labelledby="contact-title" data-screen-label="Contacto" style="padding:clamp(36px,5vw,72px) clamp(18px,4vw,48px) clamp(56px,7vw,96px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <p style="margin:0 0 20px;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#A82A33">{{ t.contact.kicker }}</p>
+      <h1 id="contact-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(44px,5.6vw,80px);line-height:1;letter-spacing:-0.015em;max-width:12em;text-wrap:balance">{{ t.contact.title }}</h1>
+      <p style="margin:22px 0 0;font-size:18px;line-height:1.6;color:#4F463F;max-width:36em;text-wrap:pretty">{{ t.contact.lead }}</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(40px,6vw,88px);margin-top:clamp(40px,5vw,64px)">
+        <div style="display:flex;flex-direction:column">
+          <dl style="margin:0;display:flex;flex-direction:column">
+            <div style="padding:20px 0;border-top:1px solid #2B2521;display:flex;flex-direction:column;gap:6px">
+              <dt style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#5E544C">{{ t.contact.phone }}</dt>
+              <dd style="margin:0"><a href="tel:+34660600183" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;color:#2B2521;text-decoration:none" style-hover="color:#A82A33">+34 660 600 183</a></dd>
+            </div>
+            <div style="padding:20px 0;border-top:1px solid #CFC3B2;display:flex;flex-direction:column;gap:6px">
+              <dt style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#5E544C">{{ t.contact.email }}</dt>
+              <dd style="margin:0"><a href="mailto:info@latorrien.es" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;color:#2B2521;text-decoration:none" style-hover="color:#A82A33">info@latorrien.es</a></dd>
+            </div>
+            <div style="padding:20px 0;border-top:1px solid #CFC3B2;display:flex;flex-direction:column;gap:6px">
+              <dt style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#5E544C">{{ t.contact.address }}</dt>
+              <dd style="margin:0;display:flex;flex-direction:column;gap:10px">
+                <address style="font-style:normal;font-size:18px;line-height:1.5">Calle Mayor, 128<br>31219 Mués, Navarra</address>
+                <a href="{{ links.maps }}" target="_blank" rel="noopener" style="align-self:flex-start;font-size:14.5px;font-weight:600;color:#2B2521;text-decoration:none;border-bottom:1px solid #A82A33;padding-bottom:3px" style-hover="color:#A82A33">{{ t.contact.mapLink }} ↗</a>
+              </dd>
+            </div>
+          </dl>
+          <div style="margin-top:20px;padding:26px;background:#EFE8DD;display:flex;flex-direction:column;gap:14px">
+            <h2 style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#A82A33">{{ t.contact.bookKicker }}</h2>
+            <p style="margin:0;font-size:15.5px;line-height:1.6;color:#4F463F">{{ t.contact.bookP }}</p>
+            <a href="{{ bookingUrl }}" target="_blank" rel="noopener" aria-label="{{ t.cta.availAria }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 22px;background:#A82A33;color:#FBF8F3;text-decoration:none;font-size:15px;font-weight:600;border-radius:2px" style-hover="background:#86202A;color:#FBF8F3">{{ t.cta.avail }} <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <form onSubmit="{{ onSubmit }}" novalidate="" aria-labelledby="form-title" style="display:flex;flex-direction:column;gap:18px;padding:clamp(24px,3.5vw,40px);border:1px solid #CFC3B2;background:#FBF8F3;align-self:start">
+          <sc-if value="{{ isSent }}" hint-placeholder-val="{{ false }}">
+            <div role="status" style="display:flex;flex-direction:column;gap:14px;padding:clamp(12px,3vw,32px) 0">
+              <span aria-hidden="true" style="width:10px;height:10px;background:#A82A33;transform:rotate(45deg)"></span>
+              <h2 id="form-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(32px,3.4vw,44px);line-height:1.05">{{ t.contact.sentTitle }}</h2>
+              <p style="margin:0;font-size:17px;line-height:1.6;color:#4F463F">{{ t.contact.sent }}</p>
+            </div>
+          </sc-if>
+          <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <h2 id="form-title" style="margin:0 0 4px;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(30px,3vw,38px);line-height:1.1">{{ t.contact.formTitle }}</h2>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600"><span>{{ t.contact.name }} *</span>
+            <input type="text" name="name" autocomplete="name" required="" value="{{ form.name }}" onChange="{{ onName }}" style="min-height:50px;padding:12px 14px;border:1px solid #BFB2A1;background:#FFFDFA;color:#2B2521;border-radius:2px;font-weight:400;font-size:16px" style-focus="outline:2px solid #A82A33;outline-offset:1px">
+          </label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600"><span>{{ t.contact.mail }} *</span>
+            <input type="email" name="email" autocomplete="email" required="" value="{{ form.email }}" onChange="{{ onEmail }}" style="min-height:50px;padding:12px 14px;border:1px solid #BFB2A1;background:#FFFDFA;color:#2B2521;border-radius:2px;font-weight:400;font-size:16px" style-focus="outline:2px solid #A82A33;outline-offset:1px">
+          </label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600"><span>{{ t.contact.tel }}</span>
+            <input type="tel" name="phone" autocomplete="tel" value="{{ form.phone }}" onChange="{{ onPhone }}" style="min-height:50px;padding:12px 14px;border:1px solid #BFB2A1;background:#FFFDFA;color:#2B2521;border-radius:2px;font-weight:400;font-size:16px" style-focus="outline:2px solid #A82A33;outline-offset:1px">
+          </label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600"><span>{{ t.contact.message }} *</span>
+            <textarea name="message" rows="5" required="" value="{{ form.message }}" onChange="{{ onMessage }}" style="padding:12px 14px;border:1px solid #BFB2A1;background:#FFFDFA;color:#2B2521;border-radius:2px;font-weight:400;font-size:16px;resize:vertical;min-height:140px" style-focus="outline:2px solid #A82A33;outline-offset:1px"></textarea>
+          </label>
+          <label style="display:flex;gap:12px;align-items:flex-start;font-size:14.5px;line-height:1.5;cursor:pointer">
+            <input type="checkbox" checked="{{ form.consent }}" onChange="{{ onConsent }}" style="width:22px;height:22px;margin:0;flex-shrink:0;accent-color:#A82A33">
+            <span>{{ t.contact.consentA }}<a href="{{ links.privacy }}" target="_blank" rel="noopener">{{ t.contact.consentLink }}</a>{{ t.contact.consentB }}</span>
+          </label>
+          <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+            <p role="alert" style="margin:0;padding:12px 14px;background:#F5E3DA;color:#7A2E14;font-size:14.5px">{{ errorText }}</p>
+          </sc-if>
+          <button type="submit" style="align-self:flex-start;min-height:52px;padding:0 26px;background:#2B2521;color:#F6F2EB;border:0;border-radius:2px;font-size:15px;font-weight:600;cursor:pointer" style-hover="background:#A82A33">{{ submitLabel }}</button>
+          </sc-if>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="access-title" data-screen-label="Contacto · Cómo llegar" style="padding:0 clamp(18px,4vw,48px) clamp(64px,8vw,112px)">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(36px,5vw,64px);align-items:start">
+      <div style="position:relative;aspect-ratio:4/3;background:#E3D9CA;overflow:hidden">
+        <iframe title="{{ t.alt.map }}" src="{{ links.mapEmbed }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(0.4) sepia(0.15)"></iframe>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <h2 id="access-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(34px,4vw,52px);line-height:1.04">{{ t.contact.accessKicker }}</h2>
+        <ul style="list-style:none;margin:0;padding:0">
+          <sc-for list="{{ t.contact.access }}" as="a" hint-placeholder-count="4">
+            <li style="padding:16px 0;border-top:1px solid #CFC3B2;font-size:15.5px;line-height:1.55;color:#3E3631">{{ a }}</li>
+          </sc-for>
+        </ul>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+</main>
+
+<footer style="background:#221B17;color:#E9E0D3;padding:clamp(56px,7vw,88px) clamp(18px,4vw,48px) 28px">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:40px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <img src="assets/logo-light.png" alt="Latorrién de Ane · Hotel Rural" width="589" height="362" style="display:block;height:96px;width:auto;max-width:100%;object-fit:contain;align-self:flex-start;margin-bottom:6px">
+        <p style="margin:0;font-size:14.5px;line-height:1.6;color:#BFB2A1;max-width:22em">{{ t.footer.tagline }}</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14.5px;line-height:1.5">
+        <h2 style="margin:0 0 4px;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#E28A86">{{ t.footer.contact }}</h2>
+        <address style="font-style:normal;color:#E9E0D3">Calle Mayor, 128<br>31219 Mués, Navarra</address>
+        <a href="tel:+34660600183" style="color:#E9E0D3;text-decoration:none" style-hover="color:#E28A86">+34 660 600 183</a>
+        <a href="mailto:info@latorrien.es" style="color:#E9E0D3;text-decoration:none" style-hover="color:#E28A86">info@latorrien.es</a>
+        <a href="{{ links.instagram }}" target="_blank" rel="noopener" style="color:#E9E0D3;text-decoration:none" style-hover="color:#E28A86">Instagram ↗</a>
+      </div>
+      <nav aria-label="{{ t.footer.explore }}" style="display:flex;flex-direction:column;gap:10px;font-size:14.5px">
+        <h2 style="margin:0 0 4px;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#E28A86">{{ t.footer.explore }}</h2>
+        <sc-for list="{{ footerLinks }}" as="l" hint-placeholder-count="8">
+          <a href="{{ l.href }}" onClick="{{ l.onClick }}" style="color:#E9E0D3;text-decoration:none" style-hover="color:#E28A86">{{ l.label }}</a>
+        </sc-for>
+      </nav>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14.5px">
+        <h2 style="margin:0 0 4px;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#E28A86">{{ t.footer.legal }}</h2>
+        <a href="{{ links.legal }}" target="_blank" rel="noopener" style="color:#E9E0D3;text-decoration:none" style-hover="color:#E28A86">{{ t.footer.legalNotice }} ↗</a>
+        <a href="{{ links.privacy }}" target="_blank" rel="noopener" style="color:#E9E0D3;text-decoration:none" style-hover="color:#E28A86">{{ t.footer.privacy }} ↗</a>
+        <div role="group" aria-label="{{ t.nav.lang }}" style="display:flex;gap:6px;margin-top:10px">
+          <button type="button" lang="es" onClick="{{ setEs }}" aria-pressed="{{ esOn }}" style="min-width:48px;min-height:44px;background:{{ esFootBg }};color:{{ esFootColor }};border:1px solid #6B5E53;border-radius:2px;font-weight:600;cursor:pointer">ES</button>
+          <button type="button" lang="en" onClick="{{ setEn }}" aria-pressed="{{ enOn }}" style="min-width:48px;min-height:44px;background:{{ enFootBg }};color:{{ enFootColor }};border:1px solid #6B5E53;border-radius:2px;font-weight:600;cursor:pointer">EN</button>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:56px;padding-top:22px;border-top:1px solid #3E342D;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:#A99B8A">
+      <span>{{ t.footer.rights }}</span>
+      <a href="{{ bookingUrl }}" target="_blank" rel="noopener" aria-label="{{ t.cta.bookAria }}" style="color:#E9E0D3;font-weight:600;text-decoration:none" style-hover="color:#E28A86">{{ t.cta.book }} ↗</a>
+    </div>
+  </div>
+</footer>
+
+<sc-if value="{{ showBar }}" hint-placeholder-val="{{ false }}">
+  <div aria-hidden="true" style="height:76px;background:#221B17"></div>
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:55;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(246,242,235,0.97);border-top:1px solid #DDD3C4">
+    <a href="tel:+34660600183" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;min-height:52px;padding:0 18px;border:1px solid #2B2521;color:#2B2521;text-decoration:none;font-weight:600;font-size:15px;border-radius:2px">{{ t.mobileBar.call }}</a>
+    <a href="{{ bookingUrl }}" target="_blank" rel="noopener" aria-label="{{ t.cta.availAria }}" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;background:#A82A33;color:#FBF8F3;text-decoration:none;font-weight:600;font-size:15px;border-radius:2px">{{ t.mobileBar.avail }} <span aria-hidden="true">↗</span></a>
+  </div>
+</sc-if>
+
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;immersive&quot;,&quot;editorial&quot;,&quot;split&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'dark' | 'immersive' | 'editorial' | 'split'&quot;,&quot;section&quot;:&quot;Home hero&quot;},&quot;bookingUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://www.booking.com/hotel/es/latorrien-de-ane.html&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Booking&quot;},&quot;showMobileBookingBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Booking&quot;},&quot;defaultLanguage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;es&quot;,&quot;en&quot;],&quot;default&quot;:&quot;es&quot;,&quot;tsType&quot;:&quot;'es' | 'en'&quot;,&quot;section&quot;:&quot;Language&quot;},&quot;bookingScore&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:9.5,&quot;min&quot;:0,&quot;max&quot;:10,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Ratings (verify before publishing)&quot;},&quot;bookingCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:294,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Ratings (verify before publishing)&quot;},&quot;tripadvisorScore&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:4.9,&quot;min&quot;:0,&quot;max&quot;:5,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Ratings (verify before publishing)&quot;},&quot;tripadvisorCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:116,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Ratings (verify before publishing)&quot;},&quot;googleScore&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:4.6,&quot;min&quot;:0,&quot;max&quot;:5,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Ratings (verify before publishing)&quot;},&quot;googleCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:279,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Ratings (verify before publishing)&quot;}}">
+const SLUGS = {
+  es: { home: "inicio", rooms: "habitaciones", restaurant: "restaurante", experience: "experiencia", contact: "contacto" },
+  en: { home: "home", rooms: "rooms", restaurant: "restaurant", experience: "experience", contact: "contact" }
+};
+const PAGES = ["home", "rooms", "restaurant", "experience", "contact"];
+
+class Component extends DCLogic {
+  state = this.initialState();
+
+  ls(k, v) {
+    try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; }
+  }
+
+  parseHash() {
+    const parts = (window.location.hash || "").replace(/^#\/?/, "").split("/").filter(Boolean);
+    let lang = null, page = "home", anchor = null;
+    if (parts[0] === "es" || parts[0] === "en") { lang = parts[0]; parts.shift(); }
+    if (parts[0]) {
+      for (const l of ["es", "en"]) for (const p of PAGES) if (SLUGS[l][p] === parts[0]) page = p;
+    }
+    if (parts[1]) anchor = parts[1];
+    return { lang, page, anchor };
+  }
+
+  initialState() {
+    const r = this.parseHash();
+    const nav = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase();
+    const browser = nav ? (nav.startsWith("es") ? "es" : "en") : null;
+    const lang = r.lang || this.ls("ltd-lang") || browser || this.props.defaultLanguage || "es";
+    return {
+      lang, page: r.page, anchor: r.anchor,
+      w: window.innerWidth, menu: false,
+      form: { name: "", email: "", phone: "", message: "", consent: false },
+      status: null, ready: !!window.LATORRIEN
+    };
+  }
+
+  hashFor(lang, page, anchor) {
+    return "#/" + lang + "/" + SLUGS[lang][page] + (anchor ? "/" + anchor : "");
+  }
+
+  componentDidMount() {
+    this._onResize = () => this.setState({ w: window.innerWidth });
+    this._onPop = () => { const r = this.parseHash(); this._jump = r.page !== this.state.page; this.setState({ page: r.page, anchor: r.anchor, lang: r.lang || this.state.lang, menu: false });
+      setTimeout(() => this.doScroll(), 40); };
+    window.addEventListener("resize", this._onResize);
+    window.addEventListener("popstate", this._onPop);
+    window.addEventListener("hashchange", this._onPop);
+    if (!window.LATORRIEN) {
+      this._poll = setInterval(() => { if (window.LATORRIEN) { clearInterval(this._poll); this.setState({ ready: true }); } }, 40);
+    }
+    this.applyMeta();
+    if (this.state.anchor) { this._jump = true; setTimeout(() => this.doScroll(), 300); }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this._onResize);
+    window.removeEventListener("popstate", this._onPop);
+    window.removeEventListener("hashchange", this._onPop);
+    clearInterval(this._poll);
+  }
+
+  componentDidUpdate(pp, ps) {
+    if (ps.page !== this.state.page || ps.lang !== this.state.lang || ps.ready !== this.state.ready) this.applyMeta();
+    if (this._scroll) { this._scroll = false; requestAnimationFrame(() => this.doScroll()); }
+  }
+
+  scrollTarget(el) {
+    const mod = el.firstElementChild || el;
+    const header = 76, bottom = window.innerWidth < 1000 ? 76 : 0;
+    const avail = window.innerHeight - header - bottom;
+    const r = mod.getBoundingClientRect(), top = r.top + window.scrollY;
+    const y = r.height <= avail ? top - header - (avail - r.height) / 2 : el.getBoundingClientRect().top + window.scrollY - header;
+    return Math.max(0, y);
+  }
+
+  doScroll(n = 0) {
+    if (n === 0 && this._scrollT) clearTimeout(this._scrollT);
+    const a = this.state.anchor, jump = this._jump;
+    if (!a) { window.scrollTo({ top: 0 }); return; }
+    const el = document.getElementById(a);
+    if (!el) { if (n < 30) this._scrollT = setTimeout(() => this.doScroll(n + 1), 50); return; }
+    if (jump) {
+      this._jump = false;
+      window.scrollTo({ top: this.scrollTarget(el) });
+      [150, 400, 900].forEach((ms) => setTimeout(() => { if (this.state.anchor === a) window.scrollTo({ top: this.scrollTarget(el) }); }, ms));
+    } else {
+      window.scrollTo({ top: this.scrollTarget(el), behavior: "smooth" });
+    }
+  }
+
+  applyMeta() {
+    clearTimeout(this._metaT);
+    this._writeMeta();
+    this._metaT = setTimeout(() => this._writeMeta(), 120);
+  }
+
+  _writeMeta() {
+    const C = window.LATORRIEN;
+    if (!C) { document.title = "Hotel Rural Latorrién de Ane | Navarra"; return; }
+    const m = C.t[this.state.lang].meta[this.state.page];
+    document.title = m.title;
+    document.documentElement.lang = this.state.lang;
+    let d = document.querySelector('meta[name="description"]');
+    if (!d) { d = document.createElement("meta"); d.name = "description"; document.head.appendChild(d); }
+    d.content = m.desc;
+  }
+
+  go(page, anchor) {
+    return (e) => {
+      if (e) { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); }
+      try { history.pushState(null, "", this.hashFor(this.state.lang, page, anchor)); } catch (err) {}
+      this._scroll = true;
+      this._jump = page !== this.state.page;
+      this._scroll = false;
+      this.setState({ page, anchor: anchor || null, menu: false });
+      setTimeout(() => this.doScroll(), 40);
+    };
+  }
+
+  setLang(lang) {
+    this.ls("ltd-lang", lang);
+    try { history.replaceState(null, "", this.hashFor(lang, this.state.page, this.state.anchor)); } catch (e) {}
+    this.setState({ lang });
+  }
+
+  setField(k) {
+    return (e) => {
+      const v = k === "consent" ? e.target.checked : e.target.value;
+      this.setState((s) => ({ form: { ...s.form, [k]: v }, status: s.status === "sent" ? null : s.status }));
+    };
+  }
+
+  submit(t) {
+    return (e) => {
+      e.preventDefault();
+      if (this.state.status === "sending") return;
+      const f = this.state.form;
+      if (!f.name.trim() || !f.email.trim() || !f.message.trim()) return this.setState({ status: "required" });
+      if (!/^\S+@\S+\.\S+$/.test(f.email.trim())) return this.setState({ status: "email" });
+      if (!f.consent) return this.setState({ status: "consent" });
+      const C = window.LATORRIEN;
+      const endpoint = this.props.formspreeEndpoint || (C && C.links.formspree) || "";
+      const done = () => this.setState({ status: "sent", form: { name: "", email: "", phone: "", message: "", consent: false } });
+      if (!endpoint) return done();
+      this.setState({ status: "sending" });
+      fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ name: f.name, email: f.email, phone: f.phone, message: f.message, language: this.state.lang, _subject: t.contact.mailSubject })
+      }).then((r) => (r.ok ? done() : this.setState({ status: "error" }))).catch(() => this.setState({ status: "error" }));
+    };
+  }
+
+  renderVals() {
+    const C = window.LATORRIEN;
+    if (!C) return { isHome: true };
+    const s = this.state, lang = s.lang, t = C.t[lang], I = C.images, p = this.props;
+    const metaKey = lang + "/" + s.page;
+    if (this._metaKey !== metaKey) { this._metaKey = metaKey; setTimeout(() => this.applyMeta(), 0); }
+    const bookingUrl = p.bookingUrl || C.links.booking;
+    const isDesktop = s.w >= 1000;
+    const h = (pg, a) => this.hashFor(lang, pg, a);
+    const fmt = (n) => String(n).replace(".", t.ratings.decimal);
+
+    const R = C.ratings;
+    const rate = (key, platform, url) => {
+      const score = p[key + "Score"] ?? R[key].score, count = p[key + "Count"] ?? R[key].count;
+      return { platform, score: fmt(score), max: R[key].max, count: count + " " + t.ratings.reviews, url, aria: t.home.readReviews + " · " + platform + " (" + t.cta.newTab + ")" };
+    };
+    const ratings = [
+      rate("booking", "Booking.com", C.links.reviewsBooking),
+      rate("tripadvisor", "Tripadvisor", C.links.reviewsTripadvisor),
+      rate("google", "Google", C.links.reviewsGoogle)
+    ];
+
+    const go = {
+      home: this.go("home"), rooms: this.go("rooms"), restaurant: this.go("restaurant"),
+      experience: this.go("experience"), contact: this.go("contact"),
+      services: this.go("experience", "servicios"), camino: this.go("experience", "camino"), area: this.go("experience", "entorno"),
+      homeReviews: this.go("home", "opiniones")
+    };
+    const hrefs = {
+      home: h("home"), rooms: h("rooms"), restaurant: h("restaurant"), experience: h("experience"), contact: h("contact"),
+      services: h("experience", "servicios"), camino: h("experience", "camino"), area: h("experience", "entorno")
+    };
+
+    const navItems = PAGES.map((pg) => ({
+      label: t.nav[pg], href: hrefs[pg], onClick: go[pg],
+      current: s.page === pg ? "page" : undefined,
+      underline: s.page === pg ? "#A82A33" : "transparent"
+    }));
+
+    const roomImg = { first: [I.roomFirst, t.alt.roomFirst], second: [I.roomAttic, t.alt.roomAttic], suite: [I.suite, t.alt.suite] };
+    const roomCards = t.home.roomCards.map((c) => ({
+      ...c, img: roomImg[c.key][0], alt: roomImg[c.key][1], linkLabel: t.home.roomLink,
+      href: h("rooms", c.anchor), onClick: this.go("rooms", c.anchor)
+    }));
+
+    const detImg = { cafe: [I.cafeBar, t.alt.cafe], lounge: [I.lounge, t.alt.lounge], reception: [I.reception, t.alt.reception], stair: [I.staircase, t.alt.staircase] };
+    const details = t.home.details.map((d) => ({ ...d, img: detImg[d.key][0], alt: detImg[d.key][1] }));
+
+    const spaceImg = {
+      bodega: { imgA: I.cellar, altA: t.alt.cellar, imgB: I.webRestaurant, altB: t.alt.cellar },
+      cafeteria: { imgA: I.cafeBar, altA: t.alt.cafe, imgB: I.pintxo, altB: t.alt.pintxo }
+    };
+    const restSpaces = t.home.restSpaces.map((sp) => ({ ...sp, ...spaceImg[sp.key], linkLabel: t.home.spaceLink + " " + (sp.key === "bodega" ? t.restaurant.bodegaName : t.restaurant.cafeName).toLowerCase(), href: h("restaurant", sp.anchor), onClick: this.go("restaurant", sp.anchor) }));
+    const restHero = t.restaurant.spaces.map((sp) => ({ ...sp, img: spaceImg[sp.id].imgA, alt: spaceImg[sp.id].altA, href: h("restaurant", sp.id), onClick: this.go("restaurant", sp.id) }));
+    const blockImg = { breakfast: [I.breakfast, t.alt.breakfast], pintxos: [I.pintxo, t.alt.pintxo], terrace: [I.heroExterior, t.alt.terrace] };
+    const cafeBlocks = t.restaurant.cafeBlocks.map((b) => ({ ...b, img: blockImg[b.key][0], alt: blockImg[b.key][1] }));
+
+    const R2 = t.rooms;
+    const types = [{ ...R2.twin, occ: R2.occupancy }, { ...R2.double, occ: R2.occupancy }];
+    const floors = [
+      { id: "primera-planta", label: R2.floor1.label, title: R2.floor1.title, text: R2.floor1.text, types, hasFamily: false, hasFeatures: false, features: [], bg: "#F6F2EB",
+        img1: I.roomFirst, alt1: t.alt.roomFirst, img2: I.corridor, alt2: t.alt.corridor, img3: I.bathroom, alt3: t.alt.bathroom },
+      { id: "segunda-planta", label: R2.floor2.label, title: R2.floor2.title, text: R2.floor2.text, types, hasFamily: true, hasFeatures: false, features: [], bg: "#F6F2EB",
+        img1: I.roomAttic, alt1: t.alt.roomAttic, img2: I.roomAtticCarved, alt2: t.alt.roomAtticCarved, img3: I.webSecondFloor, alt3: t.alt.roomAttic },
+      { id: "suite", label: R2.suite.label, title: R2.suite.title, text: R2.suite.text, types: [], hasFamily: false, hasFeatures: true, features: R2.suite.features, bg: "#EFE8DD",
+        img1: I.suite, alt1: t.alt.suite, img2: I.webSuite, alt2: t.alt.suiteWeb, img3: I.library, alt3: t.alt.library }
+    ];
+    const jump = (list, page) => list.map((j) => ({ l: j.l, href: h(page, j.a), onClick: this.go(page, j.a) }));
+
+    const places = [];
+    t.experience.groups.forEach((g) => g.items.forEach((it) => places.push(it.n)));
+
+    const num = (arr) => arr.map((x, i) => ({ ...x, n: String(i + 1).padStart(2, "0") }));
+    const restaurant = { ...t.restaurant, storyDetails: num(t.restaurant.storyDetails) };
+
+    const footerLinks = [
+      ...navItems.map((n) => ({ label: n.label, href: n.href, onClick: n.onClick })),
+      { label: t.footer.services, href: hrefs.services, onClick: go.services },
+      { label: t.footer.camino, href: hrefs.camino, onClick: go.camino },
+      { label: t.footer.area, href: hrefs.area, onClick: go.area }
+    ];
+
+    const err = s.status === "required" ? t.contact.errRequired : s.status === "email" ? t.contact.errEmail : s.status === "consent" ? t.contact.errConsent : s.status === "error" ? t.contact.sendError : "";
+    const showBar = !isDesktop && p.showMobileBookingBar !== false;
+
+    return {
+      t: { ...t, restaurant }, img: { ...I, navarraFirst: I.navarra[0] }, links: C.links, bookingUrl,
+      go, hrefs, navItems, footerLinks,
+      isDesktop, isMobile: !isDesktop, showMenu: !isDesktop && s.menu, menuOpen: s.menu,
+      menuLabel: s.menu ? t.nav.close : t.nav.menu, menuAria: s.menu ? t.nav.closeMenu : t.nav.openMenu,
+      toggleMenu: () => this.setState((st) => ({ menu: !st.menu })),
+      isHome: s.page === "home", isRooms: s.page === "rooms", isRestaurant: s.page === "restaurant",
+      isExperience: s.page === "experience", isContact: s.page === "contact",
+      setEs: () => this.setLang("es"), setEn: () => this.setLang("en"),
+      esOn: lang === "es", enOn: lang === "en",
+      esColor: lang === "es" ? "#2B2521" : "#8C7F73", enColor: lang === "en" ? "#2B2521" : "#8C7F73",
+      esDeco: lang === "es" ? "underline" : "none", enDeco: lang === "en" ? "underline" : "none",
+      esFootBg: lang === "es" ? "#E9E0D3" : "transparent", enFootBg: lang === "en" ? "#E9E0D3" : "transparent",
+      esFootColor: lang === "es" ? "#221B17" : "#E9E0D3", enFootColor: lang === "en" ? "#221B17" : "#E9E0D3",
+      ratings, reviews: t.reviews.map((r) => ({ ...r, href: C.links[r.url], hasNote: !!r.note })),
+      heroImmersive: p.heroStyle === "immersive", heroEditorial: p.heroStyle === "editorial", heroDark: (p.heroStyle || "dark") === "dark", heroSide: s.w >= 900, heroStacked: s.w < 900, heroSplit: p.heroStyle === "split",
+      roomCards, details, restSpaces, restHero, cafeBlocks, floors, placeNames: places.slice(0, 8),
+      roomsJump: jump(R2.jump, "rooms"), expJump: jump(t.experience.sub, "experience"),
+      caminoSteps: num(t.experience.caminoSteps),
+      navarra: I.navarra.map((src, i) => ({ src, i: i + 1 })),
+      form: s.form, onName: this.setField("name"), onEmail: this.setField("email"), onPhone: this.setField("phone"), onMessage: this.setField("message"), onConsent: this.setField("consent"),
+      onSubmit: this.submit(t), hasError: !!err, errorText: err, isSent: s.status === "sent", notSent: s.status !== "sent", submitLabel: s.status === "sending" ? t.contact.sending : t.contact.submit, resetForm: () => this.setState({ status: null }),
+      showBar
+    };
+  }
+}
+</script>
+</body>
+</html>

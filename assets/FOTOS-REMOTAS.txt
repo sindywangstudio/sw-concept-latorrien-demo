@@ -1,0 +1,17 @@
+Fotos enlazadas desde latorrien.es. Ábrelas en el navegador, guárdalas en assets/ y cambia la ruta en content.js.
+
+webRestaurant: https://www.latorrien.es/-_-/res/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/images/files/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/4bc861a4-7ce8-42f6-a373-4d57fc7d86a7/1200-800/3cb1f5463dc7406abb98a9de33c1591a5aa9a651
+webSecondFloor: https://www.latorrien.es/-_-/res/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/images/files/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/a94f0934-3ee6-4560-86f5-6b780cecd40b/768-576/28934a95cc8d19de8ef7ff198df78476ed3f8ec0
+webSuite: https://www.latorrien.es/-_-/res/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/images/files/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/5dbffca1-f3dc-466e-b13c-c198b799977a/768-576/6eae54a3633936d60c4618929664726b8b63c060
+navarra-01: https://www.latorrien.es/-_-/res/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/images/files/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/7ea607ba-c5a4-4532-845a-533baa2d1bb4/2000-1332/c7507dc7972c651f944f3f8f630315e942982e10
+navarra-02: https://www.latorrien.es/-_-/res/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/images/files/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/c6c66a01-0903-4afb-9e7c-e4be1cf43376/2000-1124/91d65e1f4e75e0c6fdc3298831f0b08401833561
+navarra-03: https://www.latorrien.es/-_-/res/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/images/files/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/411c9369-1a6e-471f-b907-5c7c869df0cc/2000-1333/788c0af4301e908a6a112a8334b4a064c01fb29d
+navarra-04: https://www.latorrien.es/-_-/res/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/images/files/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/d2a106e7-9b91-4eba-9314-a7071f59025f/2000-1125/cf29a9e634c7ee8ac4084f5320ead28ad3a778d1
+navarra-05: https://www.latorrien.es/-_-/res/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/images/files/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/4736487c-24b5-4a66-8cb6-571f8b7d1930/2000-1124/4f403c3db9ae48981c0ef7b74d4cbb80ce599dff
+navarra-06: https://www.latorrien.es/-_-/res/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/images/files/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/1cc16ac2-d2ab-44d7-afd1-268a4cc7581e/1280-853/b3b6cde9df167d7401fc954ba26f60fe99491f6c
+navarra-07: https://www.latorrien.es/-_-/res/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/images/files/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/19cac5e3-f89e-42a5-ba73-19e7033f444c/2000-1590/d242bf13e043b32a50d30e34af16d2406f1dd77c
+navarra-08: https://www.latorrien.es/-_-/res/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/images/files/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/c39e6e6d-8b4a-472c-adf9-b4099fdb12e1/2000-1125/4e4889c3046430e051c0dacf51d8133ee55a7c2b
+navarra-09: https://www.latorrien.es/-_-/res/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/images/files/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/aae40209-2ce0-450f-bb0c-cb6289112cf8/2000-1522/cfb65bdc25f101ed9f397f877da1acae0be2c63e
+navarra-10: https://www.latorrien.es/-_-/res/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/images/files/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/84894e36-d86c-400d-add8-8c90c98944e4/2000-1124/534ce086368bd7a82308b4585f819d25355ca42e
+navarra-11: https://www.latorrien.es/-_-/res/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/images/files/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/ef745d3d-873d-43a2-9594-443c1b96741a/2000-1333/538c4cb176925f1041cfdc05edc7fffe777c4071
+navarra-12: https://www.latorrien.es/-_-/res/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/images/files/cfd3c303-fd26-4509-b4ef-ce4dae407fe6/7604a0cc-2894-47e9-a210-7718980627aa/2000-1333/35b3e476d2e785d0496048267c2eb08d1f2fdfaa
